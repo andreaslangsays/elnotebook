@@ -1,0 +1,17 @@
+{
+    "name": "elnotebook",
+    "description": "simple rednotebook clone",
+    "version": "0.0.1",
+    "keywords": [
+        "note"
+    ],
+    "dependencies": {
+        "electron": "^1.4.8",
+        "marked": "^0.3.6"
+    },
+    "repositories": [{
+        "type": "git",
+        "url": "git@github.com:andreaslangsays/elnotebook.git"
+    }],
+    "homepage": "http://vasculum.de"
+}
