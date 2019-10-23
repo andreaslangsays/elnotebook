@@ -20,9 +20,11 @@
         "start": "electron .",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "repositories": [{
-        "type": "git",
-        "url": "git@github.com:andreaslangsays/elnotebook.git"
-    }],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git@github.com:andreaslangsays/elnotebook.git"
+        }
+    ],
     "homepage": "http://vasculum.de"
 }
