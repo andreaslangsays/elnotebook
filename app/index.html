@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Fire Sale</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="../node_modules/pikaday/css/site.css">
+    <link rel="stylesheet" href="../node_modules/pikaday/css/pikaday.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <!--<link rel="stylesheet" href="calendar.css" type="text/css">-->
+
+</head>
+
+<body>
+
+    <section class="controls">
+        <button id="new-folder">New Folder</button>
+        <button id="open-folder">Open Folder</button>
+        <button id="save-markdown" disabled>Save File</button>
+        <button id="revert" disabled>Revert</button>
+        <button id="save-html">Save HTML</button>
+        <button id="show-file" disabled>Show File</button>
+        <button id="open-in-default">Open in Default Application</button>
+    </section>
+
+    <section class="content">
+        <div class="calendar" id="calendar">
+            <form><input id="datepicker" /></form>
+            <div class="flow-element">
+                <div class="calendarview" id="calendarview"></div>
+            </div>
+        </div>
+        <label for="markdown" hidden>Markdown Content</label>
+        <textarea class="raw-markdown" id="markdown"></textarea>
+        <div class="rendered-html" id="html"></div>
+    </section>
+
+</body>
+<script>
+    require('./renderer');
+</script>
+
+</html>

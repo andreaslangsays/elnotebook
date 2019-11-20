@@ -2,12 +2,19 @@
     "name": "elnotebook",
     "description": "simple rednotebook clone",
     "version": "0.0.1",
+    "main": "app/main.js",
     "keywords": [
         "note"
     ],
+    "scripts": {
+        "start": "electron .",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
     "dependencies": {
         "electron": "^1.4.8",
-        "marked": "^0.3.6"
+        "marked": "^0.3.6",
+        "moment": "^2.24.0",
+        "pikaday": "^1.0.0"
     },
     "devDependencies": {
         "babel-eslint": "^7.1.1",
@@ -16,15 +23,9 @@
         "eslint": "^3.11.0",
         "eslint-plugin-import": "^2.2.0"
     },
-    "scripts": {
-        "start": "electron .",
-        "test": "echo \"Error: no test specified\" && exit 1"
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:andreaslangsays/elnotebook.git"
     },
-    "repositories": [
-        {
-            "type": "git",
-            "url": "git@github.com:andreaslangsays/elnotebook.git"
-        }
-    ],
     "homepage": "http://vasculum.de"
 }
