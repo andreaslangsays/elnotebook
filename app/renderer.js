@@ -59,7 +59,7 @@ newFileButton.addEventListener('click', () => {
 });
 
 openFileButton.addEventListener('click', () => {
-    mainProcess.getFileFromUser(currentWindow);
+    mainProcess.openFolder(currentWindow);
 });
 
 saveMarkdownButton.addEventListener('click', () => {

@@ -1,5 +1,6 @@
 const { app, BrowserWindow, dialog } = require('electron');
 const fs = require('fs');
+const path = require('path');
 
 //const windows = new Set();
 const openFiles = new Map();
@@ -130,10 +131,44 @@ const stopWatchingFile = (targetWindow) => {
 const openFolder = exports.openFolder = (targetWindow) => {
     const folder = dialog.showOpenDialog(targetWindow, { properties: ["openDirectory"] }, );
     console.log(folder);
+    var data = readDataFromFiles(folder[0], 'txt');
     console.log(getFileName());
+    console.log(data);
     //if (folder) { openPath(targetWindow, folder); };
 
 };
+
+const readDataFromFiles = (folder, filter) => {
+    let dataCompound = [];
+    if (!fs.existsSync(folder)) {
+        console.log("no dir ", folder);
+        return false;
+    }
+    var files = fs.readdirSync(folder);
+    for (var i = 0; i < files.length; i++) {
+        var filename = path.join(folder, files[i]);
+        var stat = fs.lstatSync(filename);
+        if (stat.isDirectory()) {
+            fromDir(filename, filter); //recurse
+        } else if (filename.indexOf(filter) >= 0) {
+            //do a simple filter over the current filename
+            // name is used later to set year and month
+            /**
+             * advanced: filter by pattern to see if filename is in right format
+             */
+            let fileName = files[i].replace('.' + filter, '');
+            let fileContent = fs.readFileSync(filename).toString();
+            dataCompound.push({
+                [fileName]: fileContent
+            });
+            if (i > 3) {
+                break;
+            }
+
+        };
+    }
+    return dataCompound;
+}
 
 const openMonth = exports.openMonth = (targetWindow, month) => {
 
@@ -148,3 +183,16 @@ const getFileName = (notebookDate) => {
 }
 
 console.log(getFileName());
+
+const parseRednotebookData = (data) => {
+    /**
+     * @TODO:
+     * parse data to a structure useful for javascript
+     * structure: notebook={year:{month:{day:{text},day:{text}},month:{day:{text},day:{text}}}}
+     * remove linebreaks
+     * use filename as base!
+     * 
+     */
+    return;
+
+}
