@@ -1,6 +1,7 @@
 const { app, BrowserWindow, dialog } = require('electron');
 const fs = require('fs');
 const path = require('path');
+const redNotebookRepository = {};
 
 //const windows = new Set();
 const openFiles = new Map();
@@ -161,6 +162,8 @@ const readDataFromFiles = (folder, filter) => {
             dataCompound.push({
                 [fileName]: fileContent
             });
+            parseRednotebookData(fileContent);
+            /** remove the constraint below if parser is finished */
             if (i > 3) {
                 break;
             }
@@ -193,6 +196,8 @@ const parseRednotebookData = (data) => {
      * use filename as base!
      * 
      */
+    console.log(data);
+
     return;
 
 }

@@ -58,10 +58,6 @@ newFileButton.addEventListener('click', () => {
     mainProcess.createWindow();
 });
 
-openFileButton.addEventListener('click', () => {
-    mainProcess.openFolder(currentWindow);
-});
-
 saveMarkdownButton.addEventListener('click', () => {
     mainProcess.saveMarkdown(currentWindow, filePath, markdownView.value);
 });
@@ -152,12 +148,12 @@ markdownView.addEventListener('drop', (event) => {
     markdownView.classList.remove('drag-over');
     markdownView.classList.remove('drag-error');
 });
-
+/*
 openInDefaultButton.addEventListener('click', () => {
     console.log("irre");
     mainProcess.openFolder(currentWindow);
 })
-
+*/
 
 ! function() {
     var data = [
@@ -175,10 +171,11 @@ openInDefaultButton.addEventListener('click', () => {
     }
 
     //var calendar = new Calendar('#calendar', data);
-
+    let eventData = ['Fri Feb 07 2020', 'Wed Feb 12 2020', ];
     picker = new Pikaday({
         field: document.getElementById('datepicker'),
         container: document.getElementById('calendarview'),
+        events: eventData,
         firstDay: 1,
         minDate: new Date(1970, 0, 1),
         maxDate: new Date(2040, 12, 31),
