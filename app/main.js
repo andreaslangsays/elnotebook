@@ -173,7 +173,8 @@ const readDataFromFiles = (folder, filter) => {
     return dataCompound;
 }
 
-const openMonth = exports.openMonth = (targetWindow, month) => {
+const openMonth = exports.openMonth = (targetWindow, month, year) => {
+    const filename = getFileName(new Date(year, month));
 
 }
 
@@ -200,4 +201,10 @@ const parseRednotebookData = (data) => {
 
     return;
 
+}
+
+const importRedNotebook = data => {
+    /**
+     * idea to import all from RedNotebook files to a different plainfile format (real markdown) 
+     */
 }
