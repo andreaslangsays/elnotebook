@@ -131,10 +131,10 @@ const stopWatchingFile = (targetWindow) => {
 
 const openFolder = exports.openFolder = (targetWindow) => {
     const folder = dialog.showOpenDialog(targetWindow, { properties: ["openDirectory"] }, );
-    console.log(folder);
+
     var data = readDataFromFiles(folder[0], 'txt');
     console.log(getFileName());
-    console.log(data);
+    console.log(data.length);
     //if (folder) { openPath(targetWindow, folder); };
 
 };
@@ -159,14 +159,12 @@ const readDataFromFiles = (folder, filter) => {
              */
             let fileName = files[i].replace('.' + filter, '');
             let fileContent = fs.readFileSync(filename).toString();
+            console.log(fileName);
             dataCompound.push({
                 [fileName]: fileContent
             });
-            parseRednotebookData(fileContent);
+            // parseRednotebookData(fileContent);
             /** remove the constraint below if parser is finished */
-            if (i > 3) {
-                break;
-            }
 
         };
     }

@@ -9,7 +9,7 @@ const Pikaday = require("pikaday");
 const markdownView = document.querySelector('#markdown');
 const htmlView = document.querySelector('#html');
 const newFileButton = document.querySelector('#new-folder');
-const openFileButton = document.querySelector('#open-folder');
+const openFolderButton = document.querySelector('#open-folder');
 const saveMarkdownButton = document.querySelector('#save-markdown');
 const revertButton = document.querySelector('#revert');
 const saveHtmlButton = document.querySelector('#save-html');
@@ -59,7 +59,7 @@ newFileButton.addEventListener('click', () => {
 });
 
 saveMarkdownButton.addEventListener('click', () => {
-    mainProcess.saveMarkdown(currentWindow, filePath, markdownView.value);
+    mainProcess.saveMarkdownc;
 });
 
 revertButton.addEventListener('click', () => {
@@ -70,7 +70,11 @@ revertButton.addEventListener('click', () => {
 saveHtmlButton.addEventListener('click', () => {
     mainProcess.saveHtml(currentWindow, htmlView.innerHTML);
 });
-
+openFolderButton.addEventListener('click', () => {
+    const result = mainProcess.openFolder(currentWindow);
+    /** this action has to lead to reading all dates and update calendar entries in pickaday! */
+    console.log(result);
+})
 ipcRenderer.on('file-opened', (event, file, content) => {
     if (currentWindow.isDocumentEdited() && isDifferentContent(content)) {
         const result = remote.dialog.showMessageBox(currentWindow, {
