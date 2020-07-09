@@ -15,6 +15,7 @@ const revertButton = document.querySelector('#revert');
 const saveHtmlButton = document.querySelector('#save-html');
 const showFileButton = document.querySelector('#show-file');
 const openInDefaultButton = document.querySelector('#open-in-default');
+let picker;
 
 let filePath = null;
 let originalContent = '';
@@ -158,6 +159,12 @@ openInDefaultButton.addEventListener('click', () => {
     mainProcess.openFolder(currentWindow);
 })
 */
+const addDate = exports.addDate = (eventData) => {
+    if (typeof(picker) == "undefined") {
+        return false;
+    }
+    picker.events.push(eventData)
+}
 
 ! function() {
     var data = [
@@ -168,11 +175,6 @@ openInDefaultButton.addEventListener('click', () => {
 
     ];
 
-
-
-    function addDate(ev) {
-
-    }
 
     //var calendar = new Calendar('#calendar', data);
     let eventData = ['Fri Feb 07 2020', 'Wed Feb 12 2020', ];
